@@ -1,0 +1,2 @@
+พิมพ์  node index.js
+หรือ nodemon index.js

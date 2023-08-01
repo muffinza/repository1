@@ -1,0 +1,9 @@
+- nodemon
+เป็นของ express ใช้เพื่อความสะดวกในการ run node (ไม่ต้องใช้คำสั่ง node ใหม่เวลาจะรันไฟล์ใหม่)
+
+- Password Authentication
+user : muhlan
+password : 11102541
+
+- Access List Entry:
+Access List Entry: 0.0.0.0/0
