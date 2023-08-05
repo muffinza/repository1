@@ -33,6 +33,61 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/views/register.html");
 });
 
+app.get("/login",function(req, res){
+  res.sendFile(__dirname+"/views/login.html")
+
+})
+
+app.post("/login",async function(req,res){
+  const username = req.body.username
+  const password = req.body.password
+
+  const ressonse = await User.findOne({ username:username})
+  const ressonse2 = await User.find()
+  //let temp = await User.db
+  //console.log(ressonse,"+++++++")
+  if(ressonse){
+    res.send("พบ user")
+  }else{
+    res.send("ไม่พบ user")
+  }
+  
+  //console.log(temp.collections,"--------")
+  //console.log(ressonse2)
+
+  let tempCollection =[]
+  for(const key in ressonse2){
+    //console.log(ressonse2[key])
+    tempCollection.push(ressonse2[key])
+  }
+  console.log(tempCollection)
+  // const ressonse = await User.findOne({ username:username }, 'name length').exec();
+  // console.log(ressonse,"========")
+  // if(ressonse){
+  //   console.log(ressonse._id)
+  // }
+  //User.findOne({username:username})
+  // User.findOne({username:username},function(err,foundUser){
+  //   if(err){
+  //     console.log(err)
+  //   }else{
+  //     if(foundUser){
+  //       if(foundUser.password === password){
+  //         res.send("logged in")
+  //       }else{
+  //         res.send("Password is incorrect!")
+  //       }
+  //     }else{
+  //       res.send("No user with this username exist")
+  //       //res.redirect("/register")
+  //     }
+  //   }
+  // })
+
+
+
+})
+
 app.post("/register", function (req, res) {
     console.log(req.body.username)
     console.log(req.body.password)
